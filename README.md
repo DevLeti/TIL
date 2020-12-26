@@ -1,2 +1,7 @@
-# TIL
-Today I Learned / 하나에 하나씩
+# Today I Learned
+새롭게 배운 것들을 정리하는 repo.
+
+## 작성법
+- 폴더랑 파일명은 영문으로 작성.
+- .md로 저장
+- 출처는 확실히 남기자.
