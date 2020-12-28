@@ -43,8 +43,10 @@ IaC는 코드의 장점인 작성용이성, 재사용성, 유지보수 등의 �
 - AWS 계정
 - AWS CLI 설치
 - 자신의 AWS 자격증명이 local로 되어있는지 확인
+  
 
-# 출처
+# 출처 / 참고
 - [Introduction to Infrastructure as Code with Terraform - Workflows](https://learn.hashicorp.com/tutorials/terraform/infrastructure-as-code?in=terraform/aws-get-started#workflows)
 - [how-to-install-terraform-in-ubuntu](https://qastack.kr/ubuntu/983351/how-to-install-terraform-in-ubuntu)
-
+- [Terraform으로 AWS 관리하기](https://blog.outsider.ne.kr/1260)
+- [만들면서 배우는 아마존 버추얼 프라이빗 클라우드(Amazon VPC)](https://www.44bits.io/ko/post/understanding_aws_vpc)
