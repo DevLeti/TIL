@@ -39,11 +39,54 @@ Infrastructure as Code의 줄임말로 코드를 통해 인프라 구성요소�
 IaC는 코드의 장점인 작성용이성, 재사용성, 유지보수 등의 장점을 가진다.
 
 # AWS와 연결
-## 준비
-- AWS 계정
-- AWS CLI 설치
-- 자신의 AWS 자격증명이 local로 되어있는지 확인
+## 테라폼으로 AWS VPC를 만드는 대략적 과정
+1. AWS에서 IAM 액세스 키 발급하기
+2. 테라폼 설치
+3. 리소스 정의
+4. 선언한 리소스들 확인(Plan)
+5. 적용(Apply)
   
+## 1. AWS에서 IAM 액세스 키 발급하기
+1. aws에 로그인을 한 후 '내 보안 자격 증명'을 클릭해 들어갑니다.
+<!-- ![aws_main](../images/terraform_img/aws_main.png)-->
+2. 좌측에 있는 액세스 관리 > 사용자를 들어가 사용자 추가를 해줍니다.
+<!--![IAM_menu](../images/terraform_img/IAM_menu.png)-->
+3. 사용자 이름은 자유롭게, AWS 엑세스 유형 선택은 프로그래밍 방식 엑세스를 선택해줍니다.
+> AWS Management Console 엑세스는 웹에서 접속을 하게 해줍니다. terraform은 웹에서 사용하는 것이 아니기 때문에 필요 없습니다.
+<!--![user_name](../images/terraform_img/user_name.png)-->
+4. 권한 설정을 해줍니다.
+> 현재는 vpc - ec2 구축이 목적이고 IAM에 대해 공부하는 것이 아니기 때문에 ec2fullaccess와 vpcfullaccess를 해줍니다.
+그룹에 사용자 추가 > 그룹 생성 > 그룹 이름 입력, ec2fullaccess, vpcfullaccess 선택
+<!--![ec2f](../images/terraform_img/ec2f.png)-->
+<!--![vcpf](../images/terraform_img/vcpf.png)-->
+5. 생성된 사용자의 액세스 키 ID와 비밀 엑세스 키를 기억해둡니다.
+**유출될 경우 다른 누군가가 여러분의 계정에 침투하여 수많은 비용을 야기시킬수 있습니다.**
+<!--![accesskey_secretkey](../images/terraform_img/accesskey_secretkey.png)-->
+
+
+## 2. 테라폼 설치
+> Ubuntu 18.04 LTS를 기준으로 합니다.
+1. 압축 해제 설치.
+```
+sudo apt-get install unzip
+```
+2. [Terraform](https://www.terraform.io/downloads.html) 홈페이지에서 최신 버전을 확인하고 다운로드 링크를 복사합니다
+3. Terraform 다운로드
+```
+wget https://releases.hashicorp.com/terraform/0.14.3/terraform_0.14.3_linux_amd64.zip
+```
+4. 압축풀기
+```
+unzip terraform_0.14.3_linux_amd64.zip
+```
+5. bin으로 파일 이동
+```
+sudo mv terraform /usr/local/bin
+```
+6. 설치 확인 (버전 확인)
+```
+terraform --version
+```
 
 # 출처 / 참고
 - [Introduction to Infrastructure as Code with Terraform - Workflows](https://learn.hashicorp.com/tutorials/terraform/infrastructure-as-code?in=terraform/aws-get-started#workflows)
