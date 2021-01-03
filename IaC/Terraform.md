@@ -199,8 +199,11 @@ resource "aws_instance" "example-server-2" {
   }
 }
 ```
+### variable? data?
 variable은 input으로 생각하시면 됩니다. `예약어 "이름" {구현}`형식을 따릅니다.
+
 data는 terraform이 주어진 data source (여기선 `aws_ami`와 `aws_instance`)를 읽고 그에 따른 결과를 지역 이름 (`example-server-1`,`example-server-2`)에 넘겨주는 역할을 합니다. [여기](https://www.terraform.io/docs/configuration/data-sources.html#using-data-sources)를 읽어보시길 추천드립니다.
+
 `aws_ami`에서 설치할 우분투 버전을 고르고 `aws_instance`를 통해 두곳의 AZ에 각각 하나의 ec2 인스턴스를 설정하는 코드입니다.
 
 # 출처 / 참고
