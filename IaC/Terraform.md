@@ -159,7 +159,7 @@ security group을 생성하는 코드입니다. ingress는 인바운드, egress�
 ```HCL
 # variable = input
 variable "key_pair" {
-  default = "deployer=key"
+  default = "deployer-key"
 }
 
 data "aws_ami" "ubuntu" {
@@ -183,7 +183,7 @@ resource "aws_instance" "example-server-1" {
   key_name = "${var.key_pair}"
   count = 1
   tags = {
-    Name = "example"
+    Name = "example_ec2-a"
   }
 }
 
@@ -195,14 +195,17 @@ resource "aws_instance" "example-server-2" {
   key_name = "${var.key_pair}"
   count = 1
   tags = {
-    Name = "example"
+    Name = "example_ec2-c"
   }
 }
 ```
-
+variable은 input으로 생각하시면 됩니다. `예약어 "이름" {구현}`형식을 따릅니다.
+data는 terraform이 주어진 data source (여기선 `aws_ami`와 `aws_instance`)를 읽고 그에 따른 결과를 지역 이름 (`example-server-1`,`example-server-2`)에 넘겨주는 역할을 합니다. [여기](https://www.terraform.io/docs/configuration/data-sources.html#using-data-sources)를 읽어보시길 추천드립니다.
+`aws_ami`에서 설치할 우분투 버전을 고르고 `aws_instance`를 통해 두곳의 AZ에 각각 하나의 ec2 인스턴스를 설정하는 코드입니다.
 
 # 출처 / 참고
 - [Introduction to Infrastructure as Code with Terraform - Workflows](https://learn.hashicorp.com/tutorials/terraform/infrastructure-as-code?in=terraform/aws-get-started#workflows)
 - [how-to-install-terraform-in-ubuntu](https://qastack.kr/ubuntu/983351/how-to-install-terraform-in-ubuntu)
 - [Terraform으로 AWS 관리하기](https://blog.outsider.ne.kr/1260)
 - [만들면서 배우는 아마존 버추얼 프라이빗 클라우드(Amazon VPC)](https://www.44bits.io/ko/post/understanding_aws_vpc)
+- [테라폼(Terraform) 기초 튜토리얼 - AWS와 테라폼으로 구현하는 Infrastructure as Code](https://www.44bits.io/ko/post/terraform_introduction_infrastrucute_as_code)
