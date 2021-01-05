@@ -7,9 +7,5 @@
 - .md 확장자로 저장.
 - 출처는 확실히 남기자.
 
-# 분류
-## AWS
-* [AWS 서비스 정리](https://github.com/DevLeti/TIL/blob/main/aws/AWS-Service.md)
-
 # 참고
 [TIL 형식 참고 - cheese10yun's TIL](https://github.com/cheese10yun/TIL/blob/master/AWS/AWS-Service.md)
