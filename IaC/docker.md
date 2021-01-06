@@ -63,6 +63,7 @@ root@07b830ee9cd5:/# git --version
 git version 2.25.1
 ```
 > -it는 -i 옵션과 -t의 옵션이 합쳐진건데 [이쪽](http://pyrasis.com/book/DockerForTheReallyImpatient/Chapter20/28) 에서 확인하시면 됩니다.
+
 생성한 이미지에서 깃이 잘 설치된 것을 확인할 수 있다.
 
 <!-- 더 작성할 내용
