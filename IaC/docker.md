@@ -15,7 +15,7 @@ VM(Virtual Machine) | Container
 컨테이너는 Docker 위에서 작동한다. 컨테이너화 된 프로그램들은 컨테이너의 장점에 의해 OS에 구애받지 않고 똑같이 작동한다. 그러므로 다른 OS라도 같은 실행을 보장할 수 있는 것이다. 조금씩 버전과 설정이 다른 다수의 서버에 똑같은 환경을 구현할 때 Docker를 사용하면 보장될 수 있는 것이다.
 
 # 작업흐름(Workflow, 작성에서 베포까지)
-![docker_workflow](../img/docker/docker_workflow.png)
+![docker_workflow](../img/docker/docker_workflow.jpg)
 1. Dockerfile 작성
 2. Docker Image 빌드
 3. Docker Container 작동
