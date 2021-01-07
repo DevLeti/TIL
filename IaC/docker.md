@@ -11,9 +11,11 @@ VM(Virtual Machine) | Container
 :----------:|:----------:
 ![vm](../img/docker/vm.png)|![container](../img/docker/container.png)
 
+<!--
 # 컨테이너라는 특징에서 사용해야 할 이유가 더 있다
 컨테이너는 Docker 위에서 작동한다. 컨테이너화 된 프로그램들은 컨테이너의 장점에 의해 OS에 구애받지 않고 똑같이 작동한다. 그러므로 다른 OS라도 같은 실행을 보장할 수 있는 것이다. 조금씩 버전과 설정이 다른 다수의 서버에 똑같은 환경을 구현할 때 Docker를 사용하면 보장될 수 있는 것이다.
-
+ -->
+ 
 # 작업흐름(Workflow, 작성에서 베포까지)
 ![docker_workflow](../img/docker/docker_workflow.jpg)
 1. Dockerfile 작성
@@ -27,18 +29,21 @@ VM(Virtual Machine) | Container
 
 ## Dockerfile 작성
 ```dockerfile
-FROM ubuntu:bionic # FROM : 어떤 이미지로부터 이미지를 생성할 것인지 지정
+FROM ubuntu:bionic # FROM
 RUN apt-get update # RUN : 명령어를 실행해라
 RUN apt-get install -y git
 ```
+1. `FROM ubuntu:bionic` : bionic 버전 ubuntu image로부터 image layer를 시작하겠다.
+2. `RUN apt-get update` : apt-get update라는 명령을 실행해라.
+3. `apt-get install -y git` : git을 설치하라는 명령을 실행해라.
 
 ## Docker Image 빌드
 ```
 sudo docker build -t ubuntu:git-from-dockerfile .
 ```
-docker로 build하는데 -t : 이름을 설정한다, ubuntu:git-from-dockerfile로, .(현재 경로의 Dockerfile 기준으로)
+직역 : docker로 build하는데 -t = 이름을 설정한다, ubuntu:git-from-dockerfile로, .(=현재 경로의 Dockerfile 기준으로)
 
-현재 경로의 Dockerfile을 읽어서 이미지를 빌드한다는 의미.
+현재 경로의 Dockerfile을 읽어서 git-from-dockerfile버전의 ubuntu 이미지를 빌드한다는 의미.
 
 ```
 Step 1/3 : FROM ubuntu:latest
@@ -54,9 +59,9 @@ Step 3/3 : RUN apt-get install -y git
 Successfully built 0ca5b5553167
 Successfully tagged ubuntu:git-from-dockerfile
 ```
-작성한 순서대로 작동하는 것을 확인할 수 있다.
+작성한 순서대로 작동하는 것을 확인할 수 있다. 생성한 이미지에서 깃이 잘 설치된 것을 확인할 수 있다. git이 기본 설치된 ubuntu 이미지를 빌드한 것이다.
 
-### 실행해보기
+### Docker Container 작동해보기
 ```
 $ sudo docker run -it ubuntu:git-from-dockerfile bash
 root@07b830ee9cd5:/# git --version
@@ -64,8 +69,13 @@ git version 2.25.1
 ```
 > -it는 -i 옵션과 -t의 옵션이 합쳐진건데 [이쪽](http://pyrasis.com/book/DockerForTheReallyImpatient/Chapter20/28) 에서 확인하시면 됩니다.
 
-생성한 이미지에서 깃이 잘 설치된 것을 확인할 수 있다.
-
+### Docker Container 확인
+```
+$ sudo docker container ls -a
+CONTAINER ID   IMAGE                        COMMAND                  CREATED          STATUS                       PORTS     NAMES
+07b830ee9cd5   ubuntu:git-from-dockerfile   "/bin/bash"              12 seconds ago   Exited (0) 11 seconds ago              sleepy_curran
+```
+대략 이런 형식으로 나온다.
 <!-- 더 작성할 내용
 *docker image 베포하기*
 docker image와 container의 차이
@@ -75,9 +85,11 @@ ssh와 셸의 차이? (docker container 실행했을때랑 ssh로 실행했을 �
 -->
 ## 참고
 - [Docker - 컨테이너란? (Container)](https://captcha.tistory.com/46)
+- [[Docker] 개념 정리 및 사용방법까지.](https://cultivo-hy.github.io/docker/image/usage/2019/03/14/Docker%EC%A0%95%EB%A6%AC/)
 - [왜 굳이 도커(컨테이너)를 써야 하나요?](https://www.44bits.io/ko/post/why-should-i-use-docker-container)
 - [[Container 시리즈] 00. Container/ Docker란 뭔가요?](https://tech.osci.kr/2020/03/03/91690167/)
 -[도커(Docker) 입문편 - 컨테이너 기초부터 서버 배포까지](https://www.44bits.io/ko/post/easy-deploy-with-docker)
 - [Using Docker Containers to Improve Reproducibility in Software and Web Engineering](https://www2.slideshare.net/vincenzoferme/using-docker-containers-to-improve-reproducibility-in-software-and-web-engineering/37)
 - [Docker 앱에 대한 개발 워크플로](https://docs.microsoft.com/ko-kr/dotnet/architecture/microservices/docker-application-development-process/docker-app-development-workflow)
 - [가장 빨리 만나는 Docker 20장 - 2. build](http://pyrasis.com/book/DockerForTheReallyImpatient/Chapter20/02)
+- [About storage drivers](https://docs.docker.com/storage/storagedriver/)
