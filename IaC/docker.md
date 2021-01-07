@@ -82,6 +82,8 @@ Docker Image는 Dockerfile을 통해 만들어지는데, 만든 이미지는 변
 
 Container는 Docker Image위에서 작동하는 프로세스로 변경 가능(mutable, writable)하다.
 
+![container-layers.jpg](../img/docker/container-layers.jpg)
+
 ## 왜 변경불가한가? 가능한게 좋은게 아닌가? (변경 불가의 장점)
 여러 서버에 같은 os, 프로그램을 설치해도 업데이트와 패치차이가 생긴다면 이후 어떤 프로그램, 코드를 실행했을 때 같은 결과를 보장할 수 없다.
 
