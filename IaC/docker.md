@@ -61,7 +61,7 @@ Successfully tagged ubuntu:git-from-dockerfile
 ```
 작성한 순서대로 작동하는 것을 확인할 수 있다. 생성한 이미지에서 깃이 잘 설치된 것을 확인할 수 있다. git이 기본 설치된 ubuntu 이미지를 빌드한 것이다.
 
-### Docker Container 작동해보기
+## Docker Container 작동해보기
 ```
 $ sudo docker run -it ubuntu:git-from-dockerfile bash
 root@07b830ee9cd5:/# git --version
@@ -76,12 +76,20 @@ CONTAINER ID   IMAGE                        COMMAND                  CREATED    
 07b830ee9cd5   ubuntu:git-from-dockerfile   "/bin/bash"              12 seconds ago   Exited (0) 11 seconds ago              sleepy_curran
 ```
 대략 이런 형식으로 나온다.
+
+# Docker Image와 Container 정리
+Docker Image는 Dockerfile을 통해 만들어지는데, 만든 이미지는 변경불가(Immutable, Read Only)한 특성을 가지고 있다. 
+
+Container는 Docker Image위에서 작동하는 프로세스로 변경 가능(mutable, writable)하다.
+
+## 왜 변경불가한가? 가능한게 좋은게 아닌가? (변경 불가의 장점)
+여러 서버에 같은 os, 프로그램을 설치해도 업데이트와 패치차이가 생긴다면 이후 어떤 프로그램, 코드를 실행했을 때 같은 결과를 보장할 수 없다.
+
+Docker Image는 변경 불가하므로 같은 버전을 다중 서버에 적용할 수 있다.(= 변경점이 생기면 변경 불가의 특성으로인해 새로운 버전의 이미지를 생성하고 적용하여 모든 서버의 동일한 상태를 보장한다.)
+
+
 <!-- 더 작성할 내용
 *docker image 베포하기*
-docker image와 container의 차이
-ssh와 셸의 차이? (docker container 실행했을때랑 ssh로 실행했을 때 차이. 프로세스가 유지가 되어 있는지)
-한 가지 재미있는 점은 pull이라는 명령어 이름입니다. 도커에서는 이미지를 다운 받을 때  install이나 download와 같은 명령 대신 pull을 사용합니다. 앞으로 살펴보겠지만 이는 단순히 이미지를 다운로드 받는 데서만 그런 것은 아닙니다. 이미지를 업로드 할 때는 push라는 명령어를 쓰고, 새로운 이미지를 생성할 때는 commit, 이미지의 차이를 확인할 때는 diff라는 명령어를 사용합니다. 이러한 명령어 이름은 깃Git이나 서브버전Subversion에서 사용되는 명령어들로 개발자들에게는 친숙한 이름들입니다. 기능적으로는 이미지를 다운로드 받아온다고 이해해주시기 바랍니다.
- - 44bits, easy-deploy-with-docker
 -->
 ## 참고
 - [Docker - 컨테이너란? (Container)](https://captcha.tistory.com/46)
@@ -93,3 +101,4 @@ ssh와 셸의 차이? (docker container 실행했을때랑 ssh로 실행했을 �
 - [Docker 앱에 대한 개발 워크플로](https://docs.microsoft.com/ko-kr/dotnet/architecture/microservices/docker-application-development-process/docker-app-development-workflow)
 - [가장 빨리 만나는 Docker 20장 - 2. build](http://pyrasis.com/book/DockerForTheReallyImpatient/Chapter20/02)
 - [About storage drivers](https://docs.docker.com/storage/storagedriver/)
+- [클라우드에서는 서버를 한번 쓰고 버린다고? – Immutable infrastructure & Docker](http://www.opennaru.com/openshift/immutable-infrastructure-vs-old-infra/)
