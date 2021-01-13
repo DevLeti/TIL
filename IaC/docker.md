@@ -89,8 +89,30 @@ Container는 Docker Image위에서 작동하는 프로세스로 변경 가능(mu
 
 Docker Image는 변경 불가하므로 같은 버전을 다중 서버에 적용할 수 있다.(= 변경점이 생기면 변경 불가의 특성으로인해 새로운 버전의 이미지를 생성하고 적용하여 모든 서버의 동일한 상태를 보장한다.)
 
+# Docker Compose
+Docker compose는 yaml파일로 여러개의 컨테이너를 정의하고 여러 옵션들을 작성하여 관리하는 툴이다.
+
+## 예시 : django + postgreSQL돌리기
+- 필요한 설정들
+ - postgreSQL db 이름
+ - postgreSQL 유저명
+ - postgreSQL 비밀번호
+ - django에 연결할 db 이름 
+ - 컨테이너 포트와 로컬 포트
+ - django container 이름
+ - 등등등
+
+이 많은 옵션을 매번 입력하지 않고 한번에 실행 할 수 있도록 해주는 것이 Docker compose이다.
+
+## Docker Compose를 만들기 위한 순서
+1. Dockerfile 작성
+2. docker-compose.yml 작성
+3. `docker-compose up` 명령어로 시작
+
+
 
 <!-- 더 작성할 내용
+1,2,3에 맞춰서 작성하기
 *docker image 베포하기*
 -->
 ## 참고
@@ -104,3 +126,4 @@ Docker Image는 변경 불가하므로 같은 버전을 다중 서버에 적용�
 - [가장 빨리 만나는 Docker 20장 - 2. build](http://pyrasis.com/book/DockerForTheReallyImpatient/Chapter20/02)
 - [About storage drivers](https://docs.docker.com/storage/storagedriver/)
 - [클라우드에서는 서버를 한번 쓰고 버린다고? – Immutable infrastructure & Docker](http://www.opennaru.com/openshift/immutable-infrastructure-vs-old-infra/)
+- [[2018. 05] 파이썬 개발환경 구성하기 거의 끝판왕 Docker Compose - 김승호](https://www.youtube.com/watch?v=oQ50eqDH91A)
