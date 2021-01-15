@@ -12,21 +12,20 @@ Lambda는 특정 코드(ex. 이미지 리사이징, api)를 서버구축 없이(
 
 ### 람다를 실행시키는 여러가지 방법
 1. API Gateway
-	API Gateway로 api의 구축, 배포 및 관리를 하고 Lambda로 코드 구현하는 방식.
+	- API Gateway로 api의 구축, 배포 및 관리를 하고 Lambda로 코드 구현하는 방식.
 2. CloudWatch
-	CloudWatch로 주기적인 Lambda 호출 가능
+	- CloudWatch로 주기적인 Lambda 호출 가능
 3. S3
-	S3에서 발생하는 특정 이벤트를 통해 람다 함수를 실행할 수 있다. [당근마켓에서 이 방법으로 이미지 썸네일을 만들었다고 한다.](https://medium.com/daangn/aws-lambda%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%8D%B8%EB%84%A4%EC%9D%BC-%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%B0%9C-%ED%9B%84%EA%B8%B0-acc278d49980)
+	- S3에서 발생하는 특정 이벤트를 통해 람다 함수를 실행할 수 있다. [당근마켓에서 이 방법으로 이미지 썸네일을 만들었다고 한다.](https://medium.com/daangn/aws-lambda%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%8D%B8%EB%84%A4%EC%9D%BC-%EC%83%9D%EC%84%B1-%EA%B0%9C%EB%B0%9C-%ED%9B%84%EA%B8%B0-acc278d49980)
 4. Lambda@Edge
-	Amazon CloudFront의 기능 중 하나로 코드를 aws의 cdn에 프로비저닝시켜 사용자가 코드를 가까운 장소에서 사용할 수 있도록 한다.
-	
-	이 기능을 사용할 때 여러가지 [제한사항](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-requirements-limits.html)이 있다.
-	1. Lambda@Edge의 리전은 미국 동부(N. Virginia) 고정
-	2. 지원 언어 한정 (2021-01 기준)
+	- Amazon CloudFront의 기능 중 하나로 코드를 aws의 cdn에 프로비저닝시켜 사용자가 코드를 가까운 장소에서 사용할 수 있도록 한다.
+	- 이 기능을 사용할 때 여러가지 [제한사항](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-requirements-limits.html)이 있다.
+	  1. Lambda@Edge의 리전은 미국 동부(N. Virginia) 고정
+	  2. 지원 언어 한정 (2021-01 기준)
 		- Python 3.8 or 3.7
 		- Node.js 12 or 10
 		- Node.js 8 or 6 (지원 중단으로 만들거나 수정 불가)
-	3. VPC의 리소스를 접근하는 용도로 Lambda function 사용 불가
+	  3. VPC의 리소스를 접근하는 용도로 Lambda function 사용 불가
 	
 ### Serverless
 Serverless는 서버가 없다는 의미이다. 엄밀히 말하면 작업을 하는 서버는 존재하나 이것에 대해 따로 관심을 가질 필요가 없다는 의미이다. 예로 Lambda를 사용할 때 이 서비스의 서버 사양, 네트워크, 구축 등에 신경쓰지 않아도 된다.
