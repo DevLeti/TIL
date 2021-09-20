@@ -31,7 +31,7 @@
     - ERC-20의 경우 잘못된 주소로 토큰이 전송되었을 때 소유권을 잃어버리는 문제가 있는데, ERC-223의 경우 이 문제를 방지함.
 3. ERC-621
 4. ERC-721
-    - NFT토큰을 만들때 사용되는 토큰.
+    - NFT를 만들때 사용되는 토큰.
     - ERC-721로 발행된 토큰들은 서로가 대체불가능(Non-Fungible) 하다.
     - ERC-20의 경우 대체 가능하다. ('화폐'의 개념으로 생각하면 쉬울듯 하다.
 5. ERC-1155
@@ -48,7 +48,7 @@
 
 - [블록체인 비즈니스 사례 1. 스마트계약,송금,사물인터넷](https://www.markany.com/kr/portfolio-posts/%eb%b8%94%eb%a1%9d%ec%b2%b4%ec%9d%b8-%eb%b9%84%ec%a6%88%eb%8b%88%ec%8a%a4-%ec%82%ac%eb%a1%80-1/)
 
-- [암호화폐 첫걸음 3] 다양한 암호화폐 토큰 종류의 이해](https://blog.makerdao.com/ko/6-3-%EB%8B%A4%EC%96%91%ED%95%9C-%EC%95%94%ED%98%B8%ED%99%94%ED%8F%90-%ED%86%A0%ED%81%B0-%EC%A2%85%EB%A5%98%EC%9D%98-%EC%9D%B4%ED%95%B4/)
+- [암호화폐 첫걸음 3\] 다양한 암호화폐 토큰 종류의 이해](https://blog.makerdao.com/ko/6-3-%EB%8B%A4%EC%96%91%ED%95%9C-%EC%95%94%ED%98%B8%ED%99%94%ED%8F%90-%ED%86%A0%ED%81%B0-%EC%A2%85%EB%A5%98%EC%9D%98-%EC%9D%B4%ED%95%B4/)
 
 - [암호화폐 토큰의 종류 (ERC 표준의 종류)](https://isnow.tistory.com/248#)
 
