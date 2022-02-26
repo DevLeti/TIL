@@ -8,7 +8,7 @@
 4. Plan & Apply - ```terraform plan```으로 과정을 검증하고 ```terraform apply```로 클라우드에 적용한다.
 5. Destroy - 리소스 제거
 
-> plan을 통해서 꼭! 검증하고 apply를 해야 실제 배포시 일어나는 문제점을 최대한 줄일 수 있다고 합니다. 잊지말고 apply!!
+> plan을 통해서 꼭! 검증하고 apply를 해야 실제 배포시 일어나는 문제점을 최대한 줄일 수 있다고 합니다.
 
 ## IaC
 Infrastructure as Code의 줄임말로 코드를 통해 인프라 구성요소들을 구축하고 관리하는 것을 뜻한다.
